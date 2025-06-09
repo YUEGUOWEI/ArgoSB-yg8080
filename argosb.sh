@@ -4,7 +4,7 @@ export nix=${nix:-''}
 [ -z "$nix" ] && sys='主流VPS-' || sys='容器NIX-'
 echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" 
 echo "${sys}ArgoSB真一键无交互脚本"
-echo "当前版本：25.5.10 测试beta7版"
+echo "当前版本：99.99.99"
 echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 export UUID=${uuid:-''}
 export port_vm_ws=${vmpt:-''}
@@ -54,7 +54,7 @@ rm -rf /etc/s-box-ag /usr/bin/agsb
 }
 up(){
 rm -rf /usr/bin/agsb
-curl -L -o /usr/bin/agsb -# --retry 2 --insecure https://raw.githubusercontent.com/yg8080/argosb/main/argosb.sh
+curl -L -o /usr/bin/agsb -# --retry 2 --insecure https://raw.githubusercontent.com/YUEGUOWEI/ArgoSB-yg8080/master/argosb.sh
 chmod +x /usr/bin/agsb
 }
 if [[ "$1" == "del" ]]; then
@@ -308,7 +308,7 @@ mkdir -p nixag
 del(){
 kill -15 $(cat nixag/sbargopid.log 2>/dev/null) >/dev/null 2>&1
 kill -15 $(cat nixag/sbpid.log 2>/dev/null) >/dev/null 2>&1
-sed -i '/yg8080/d' ~/.bashrc 
+sed -i '/ArgoSB-yg8080/d' ~/.bashrc 
 source ~/.bashrc
 rm -rf nixag
 }
@@ -353,8 +353,8 @@ echo "当前uuid密码：$UUID"
 echo
 if [[ "$hostname" == *firebase* || "$hostname" == *idx* ]]; then
 [ -f ~/.bashrc ] || touch ~/.bashrc
-sed -i '/yg8080/d' ~/.bashrc
-echo "export nix=y uuid=${uuid} vmpt=${port_vm_ws} agn=${ARGO_DOMAIN} agk=${ARGO_AUTH} && bash <(curl -Ls https://raw.githubusercontent.com/yg8080/argosb/main/argosb.sh)" >> ~/.bashrc
+sed -i '/ArgoSB-yg8080/d' ~/.bashrc
+echo "export nix=y uuid=${uuid} vmpt=${port_vm_ws} agn=${ARGO_DOMAIN} agk=${ARGO_AUTH} && bash <(curl -Ls https://raw.githubusercontent.com/YUEGUOWEI/ArgoSB-yg8080/master/argosb.sh)" >> ~/.bashrc
 source ~/.bashrc
 fi
 sleep 2
